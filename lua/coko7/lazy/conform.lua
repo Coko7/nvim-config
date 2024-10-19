@@ -26,12 +26,12 @@ return { -- Autoformat
 		end,
 		formatters_by_ft = {
 			lua = { "stylua" },
-			-- Conform can also run multiple formatters sequentially
-			-- python = { "isort", "black" },
-			--
-			-- You can use a sub-list to tell conform to run *until* a formatter
-			-- is found.
-			-- javascript = { { "prettierd", "prettier" } },
+			-- Conform will run multiple formatters sequentially
+			python = { "isort", "black" },
+			-- You can customize some of the format options for the filetype (:help conform.format)
+			rust = { "rustfmt", lsp_format = "fallback" },
+			-- Conform will run the first available formatter
+			javascript = { "prettierd", "prettier", stop_after_first = true },
 		},
 	},
 }
