@@ -8,6 +8,7 @@ return { -- Highlight, edit, and navigate code
 			"diff",
 			"go",
 			"html",
+			"hyprlang",
 			"javascript",
 			"typescript",
 			"lua",
