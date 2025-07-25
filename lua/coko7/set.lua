@@ -25,7 +25,12 @@ vim.opt.mouse = "a"
 vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
-vim.opt.clipboard = "unnamedplus"
+--  Schedule the setting after `UiEnter` because it can increase startup-time.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+vim.schedule(function()
+	vim.opt.clipboard = "unnamedplus"
+end)
 
 -- Disable line wrap
 vim.opt.wrap = false
@@ -66,7 +71,7 @@ vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 10
 
 -- Set highlight on search
 vim.opt.hlsearch = true
@@ -82,4 +87,4 @@ vim.opt.smartindent = true
 
 vim.opt.termguicolors = true
 
--- vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "100"
