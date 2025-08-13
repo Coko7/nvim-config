@@ -140,6 +140,7 @@ return {
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
+			ts_ls = {},
 			-- clangd = {},
 			-- gopls = {},
 			-- pyright = {},
@@ -167,19 +168,19 @@ return {
 					},
 				},
 			},
-			rust_analyzer = {},
+			csharp_ls = {},
 			ast_grep = {},
-			roslyn = {
-				settings = {
-					["csharp|inlay_hints"] = {
-						csharp_enable_inlay_hints_for_implicit_object_creation = true,
-						csharp_enable_inlay_hints_for_implicit_variable_types = true,
-					},
-					["csharp|code_lens"] = {
-						dotnet_enable_references_code_lens = true,
-					},
-				},
-			},
+			-- roslyn = {
+			-- 	settings = {
+			-- 		["csharp|inlay_hints"] = {
+			-- 			csharp_enable_inlay_hints_for_implicit_object_creation = true,
+			-- 			csharp_enable_inlay_hints_for_implicit_variable_types = true,
+			-- 		},
+			-- 		["csharp|code_lens"] = {
+			-- 			dotnet_enable_references_code_lens = true,
+			-- 		},
+			-- 	},
+			-- },
 		}
 
 		-- Ensure the servers and tools above are installed
