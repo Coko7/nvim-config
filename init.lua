@@ -1,4 +1,4 @@
-require("coko7")
+require("config")
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

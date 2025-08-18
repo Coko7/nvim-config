@@ -22,7 +22,7 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
-	spec = "coko7.lazy",
+	spec = "config.plugins",
 	change_detection = { notify = false },
 }, {
 	ui = {
