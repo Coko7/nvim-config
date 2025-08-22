@@ -11,6 +11,7 @@ return {
 		config = function()
 			local dap = require("dap")
 			local dapui = require("dapui")
+			local dotnet = require("config.custom.nvim-dap-dotnet")
 
 			require("dapui").setup()
 			-- require("dap-go").setup()
@@ -44,16 +45,13 @@ return {
 					name = "launch-netcoredbg",
 					request = "launch",
 					program = function()
-						local bin_dbg_dir = vim.fn.getcwd() .. "/bin/Debug"
-						local dll_file = nil
-						for _, file in ipairs(vim.fn.systemlist("fd --extension dll --base-directory " .. bin_dbg_dir)) do
-							if file:match("%.dll$") then
-								dll_file = bin_dbg_dir .. "/" .. file
-								break
-							end
-						end
-						return dll_file
+						return dotnet.build_dll_path()
 					end,
+					cwd = vim.fn.getcwd(),
+					env = {
+						ASPNETCORE_ENVIRONMENT = "Development",
+					},
+					console = "integratedTerminal",
 				},
 			}
 
@@ -94,6 +92,9 @@ return {
 			vim.keymap.set("n", "<space>?", function()
 				require("dapui").eval(nil, { enter = true })
 			end)
+
+			vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
+			vim.fn.sign_define("DapStopped", { text = "🚀", texthl = "", linehl = "", numhl = "" })
 
 			vim.keymap.set("n", "<F1>", dap.continue, { desc = "Continue" })
 			vim.keymap.set("n", "<F2>", dap.step_into, { desc = "Step into" })
