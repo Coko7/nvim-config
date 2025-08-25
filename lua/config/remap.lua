@@ -25,6 +25,9 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-Right>", { desc = "Move focus to the right
 vim.keymap.set("n", "<C-j>", "<C-w><C-Down>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-Up>", { desc = "Move focus to the upper window" })
 
+vim.keymap.set("n", "<leader>ts", ":split | terminal<CR>", { desc = "Open terminal in split" })
+vim.keymap.set("n", "<leader>tv", ":vsplit | terminal<CR>", { desc = "Open terminal in vertical split" })
+
 vim.keymap.set("n", "<leader>pv", "<cmd>Oil<CR>", { desc = "Open File Explorer (with Oil)" })
 
 vim.keymap.set("v", "J", ":move '>+1<CR>gv=gv")
