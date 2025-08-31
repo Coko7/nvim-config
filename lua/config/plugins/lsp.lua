@@ -140,12 +140,7 @@ return {
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
-			ts_ls = {},
-			-- clangd = {},
-			-- gopls = {},
-			-- pyright = {},
-			rust_analyzer = {},
-			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
+			-- See `:help lspconfig-all` for a list of all the pre-configured LSPs
 			--
 			-- Some languages (like typescript) have entire language plugins that can be useful:
 			--    https://github.com/pmizio/typescript-tools.nvim
@@ -153,7 +148,30 @@ return {
 			-- But for many setups, the LSP (`tsserver`) will work just fine
 			-- tsserver = {},
 			--
-
+			ast_grep = {},
+			bashls = {},
+			csharp_ls = {},
+			emmet_language_server = {},
+			lemminx = {
+				init_options = {
+					settings = {
+						xml = {
+							format = {
+								enabled = true,
+								splitAttributes = "preserve",
+								maxLineWidth = 350,
+							},
+						},
+						xslt = {
+							format = {
+								enabled = true,
+								splitAttributes = "preserve",
+								maxLineWidth = 350,
+							},
+						},
+					},
+				},
+			},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes = { ...},
@@ -168,19 +186,8 @@ return {
 					},
 				},
 			},
-			csharp_ls = {},
-			ast_grep = {},
-			-- roslyn = {
-			-- 	settings = {
-			-- 		["csharp|inlay_hints"] = {
-			-- 			csharp_enable_inlay_hints_for_implicit_object_creation = true,
-			-- 			csharp_enable_inlay_hints_for_implicit_variable_types = true,
-			-- 		},
-			-- 		["csharp|code_lens"] = {
-			-- 			dotnet_enable_references_code_lens = true,
-			-- 		},
-			-- 	},
-			-- },
+			rust_analyzer = {},
+			ts_ls = {},
 		}
 
 		-- Ensure the servers and tools above are installed
